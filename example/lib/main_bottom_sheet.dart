@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
               selectorConfig: SelectorConfig(
                 selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
                 useBottomSheetSafeArea: true,
-              ),
+              ), popUpTextColor: Colors.black,
             ),
             ElevatedButton(
               onPressed: () {

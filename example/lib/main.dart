@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
               inputBorder: OutlineInputBorder(),
               onSaved: (PhoneNumber number) {
                 print('On Saved: $number');
-              },
+              },popUpTextColor: Colors.black,
             ),
             ElevatedButton(
               onPressed: () {

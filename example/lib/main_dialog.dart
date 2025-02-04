@@ -51,6 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
               selectorConfig: SelectorConfig(
                 selectorType: PhoneInputSelectorType.DIALOG,
               ),
+              popUpTextColor: Colors.black,
             ),
             ElevatedButton(
               onPressed: () {

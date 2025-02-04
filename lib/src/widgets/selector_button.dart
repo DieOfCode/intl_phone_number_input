@@ -17,6 +17,7 @@ class SelectorButton extends StatelessWidget {
   final String? locale;
   final bool isEnabled;
   final bool isScrollControlled;
+  final Color popUpTextColor;
 
   final ValueChanged<Country?> onCountryChanged;
 
@@ -32,6 +33,7 @@ class SelectorButton extends StatelessWidget {
     required this.onCountryChanged,
     required this.isEnabled,
     required this.isScrollControlled,
+    required this.popUpTextColor,
   }) : super(key: key);
 
   @override
@@ -47,7 +49,7 @@ class SelectorButton extends StatelessWidget {
                     useEmoji: selectorConfig.useEmoji,
                     leadingPadding: selectorConfig.leadingPadding,
                     trailingSpace: selectorConfig.trailingSpace,
-                    textStyle: selectorTextStyle,
+                    textStyle: selectorTextStyle!.copyWith(color: popUpTextColor),
                   ),
                   value: country,
                   items: mapCountryToDropdownItem(countries),
@@ -60,7 +62,7 @@ class SelectorButton extends StatelessWidget {
                 useEmoji: selectorConfig.useEmoji,
                 leadingPadding: selectorConfig.leadingPadding,
                 trailingSpace: selectorConfig.trailingSpace,
-                textStyle: selectorTextStyle,
+                textStyle: selectorTextStyle!.copyWith(color: popUpTextColor),
               )
         : MaterialButton(
             key: Key(TestHelper.DropdownButtonKeyValue),
@@ -91,7 +93,7 @@ class SelectorButton extends StatelessWidget {
                 useEmoji: selectorConfig.useEmoji,
                 leadingPadding: selectorConfig.leadingPadding,
                 trailingSpace: selectorConfig.trailingSpace,
-                textStyle: selectorTextStyle,
+                textStyle: selectorTextStyle!.copyWith(color: popUpTextColor),
               ),
             ),
           );
@@ -108,7 +110,7 @@ class SelectorButton extends StatelessWidget {
           country: country,
           showFlag: selectorConfig.showFlags,
           useEmoji: selectorConfig.useEmoji,
-          textStyle: selectorTextStyle,
+          textStyle: selectorTextStyle!.copyWith(color: popUpTextColor),
           withCountryNames: false,
           trailingSpace: selectorConfig.trailingSpace,
         ),
