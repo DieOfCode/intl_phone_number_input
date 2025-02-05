@@ -52,6 +52,18 @@ class SelectorButton extends StatelessWidget {
                     textStyle: selectorTextStyle,
                   ),
                   value: country,
+                  style: const TextStyle(color: Colors.black),
+                  // Черный цвет для элементов списка
+                  selectedItemBuilder: (BuildContext context) {
+                    return countries.map<Widget>((Country item) {
+                      return Text(
+                        item.name!,
+                        style: const TextStyle(
+                            color: Colors
+                                .white),
+                      );
+                    }).toList();
+                  },
                   items: mapCountryToDropdownItem(countries),
                   onChanged: isEnabled ? onCountryChanged : null,
                 ),
@@ -62,7 +74,7 @@ class SelectorButton extends StatelessWidget {
                 useEmoji: selectorConfig.useEmoji,
                 leadingPadding: selectorConfig.leadingPadding,
                 trailingSpace: selectorConfig.trailingSpace,
-                textStyle: selectorTextStyle!.copyWith(color: popUpTextColor),
+                textStyle: selectorTextStyle,
               )
         : MaterialButton(
             key: Key(TestHelper.DropdownButtonKeyValue),
@@ -102,20 +114,22 @@ class SelectorButton extends StatelessWidget {
   /// Converts the list [countries] to `DropdownMenuItem`
   List<DropdownMenuItem<Country>> mapCountryToDropdownItem(
       List<Country> countries) {
-    return countries.map((country) {
-      return DropdownMenuItem<Country>(
-        value: country,
-        child: Item(
-          key: Key(TestHelper.countryItemKeyValue(country.alpha2Code)),
-          country: country,
-          showFlag: selectorConfig.showFlags,
-          useEmoji: selectorConfig.useEmoji,
-          textStyle: selectorTextStyle!.copyWith(color: popUpTextColor),
-          withCountryNames: false,
-          trailingSpace: selectorConfig.trailingSpace,
-        ),
-      );
-    }).toList();
+    return countries.map(
+      (country) {
+        return DropdownMenuItem<Country>(
+          value: country,
+          child: Item(
+            key: Key(TestHelper.countryItemKeyValue(country.alpha2Code)),
+            country: country,
+            showFlag: selectorConfig.showFlags,
+            useEmoji: selectorConfig.useEmoji,
+            textStyle: selectorTextStyle!.copyWith(color: Colors.black),
+            withCountryNames: false,
+            trailingSpace: selectorConfig.trailingSpace,
+          ),
+        );
+      },
+    ).toList();
   }
 
   /// shows a Dialog with list [countries] if the [PhoneInputSelectorType.DIALOG] is selected

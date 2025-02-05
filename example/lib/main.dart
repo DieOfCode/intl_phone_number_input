@@ -45,27 +45,43 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             InternationalPhoneNumberInput(
               onInputChanged: (PhoneNumber number) {
-                print(number.phoneNumber);
+                setState(() {});
+              },
+              onSubmit: () {
+                print("");
               },
               onInputValidated: (bool value) {
                 print(value);
               },
-              selectorConfig: SelectorConfig(
-                selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
-                useBottomSheetSafeArea: true,
+              selectorConfig: const SelectorConfig(
+                selectorType: PhoneInputSelectorType.DROPDOWN,
+                useBottomSheetSafeArea: false,
               ),
               ignoreBlank: false,
               autoValidateMode: AutovalidateMode.disabled,
-              selectorTextStyle: TextStyle(color: Colors.black),
-              initialValue: number,
+              selectorTextStyle: const TextStyle(color: Colors.red),
               textFieldController: controller,
+              textStyle: TextStyle(
+                color: Colors.white,
+              ),
               formatInput: true,
-              keyboardType:
-                  TextInputType.numberWithOptions(signed: true, decimal: true),
-              inputBorder: OutlineInputBorder(),
+              keyboardType: TextInputType.phone,
+              cursorColor: Colors.black,
+              inputDecoration: InputDecoration(
+                filled: true,
+                hintText: '+79000000000',
+                hintStyle: TextStyle(color: Colors.black),
+                fillColor: Colors.green,
+                contentPadding: const EdgeInsets.symmetric(horizontal: 24),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.circular(24),
+                ),
+              ),
               onSaved: (PhoneNumber number) {
                 print('On Saved: $number');
-              },popUpTextColor: Colors.black,
+              },
+              popUpTextColor: Colors.black,
             ),
             ElevatedButton(
               onPressed: () {
