@@ -55,14 +55,21 @@ class SelectorButton extends StatelessWidget {
                   style: const TextStyle(color: Colors.black),
                   // Черный цвет для элементов списка
                   selectedItemBuilder: (BuildContext context) {
-                    return countries.map<Widget>((Country item) {
-                      return Text(
-                        item.name!,
-                        style: const TextStyle(
-                            color: Colors
-                                .white),
-                      );
-                    }).toList();
+                    return countries.map<Widget>(
+                      (Country item) {
+                        return Center(
+                            child: Item(
+                          key: Key(TestHelper.countryItemKeyValue(
+                              country!.alpha2Code)),
+                          country: country,
+                          showFlag: selectorConfig.showFlags,
+                          useEmoji: selectorConfig.useEmoji,
+                          textStyle: TextStyle(color: Colors.white),
+                          withCountryNames: false,
+                          trailingSpace: selectorConfig.trailingSpace,
+                        ));
+                      },
+                    ).toList();
                   },
                   items: mapCountryToDropdownItem(countries),
                   onChanged: isEnabled ? onCountryChanged : null,
