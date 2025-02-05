@@ -93,7 +93,7 @@ class SelectorButton extends StatelessWidget {
                 useEmoji: selectorConfig.useEmoji,
                 leadingPadding: selectorConfig.leadingPadding,
                 trailingSpace: selectorConfig.trailingSpace,
-                textStyle: selectorTextStyle!.copyWith(color: popUpTextColor),
+                textStyle: selectorTextStyle,
               ),
             ),
           );

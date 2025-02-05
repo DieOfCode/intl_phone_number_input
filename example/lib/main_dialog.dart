@@ -47,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
               autoValidateMode: AutovalidateMode.disabled,
               initialValue: PhoneNumber(isoCode: 'NG'),
               textFieldController: controller,
+              selectorTextStyle: TextStyle(color: Colors.red),
               inputBorder: OutlineInputBorder(),
               selectorConfig: SelectorConfig(
                 selectorType: PhoneInputSelectorType.DIALOG,
